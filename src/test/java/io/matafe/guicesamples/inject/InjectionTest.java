@@ -46,7 +46,7 @@ public class InjectionTest {
 
     @Before
     public void setup() {
-	Injector injector = Guice.createInjector(new InterfaceBindingModule());
+	Injector injector = Guice.createInjector(new InjectBindingModule());
 	injector.injectMembers(this);
     }
 

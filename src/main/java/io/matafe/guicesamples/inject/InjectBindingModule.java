@@ -5,11 +5,11 @@ import com.google.inject.multibindings.MapBinder;
 import com.google.inject.name.Names;
 
 /**
- * Guice Module definition.
+ * Guice Module - Injection.
  * 
  * @author matafe@gmail.com
  */
-public class InterfaceBindingModule extends AbstractModule {
+public class InjectBindingModule extends AbstractModule {
 
     @Override
     protected void configure() {
