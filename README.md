@@ -5,6 +5,7 @@ Google guice basic samples
   * Class Injection;
   * Singleton Injection;
   * Interface Injection;
+  * Interface Injection with external implementation;
   * Interface with more than one implementation Injection using Annotation;
   * Named Injection;
   * Instance Injections, String, Integer;
