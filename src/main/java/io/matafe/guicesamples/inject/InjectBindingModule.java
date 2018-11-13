@@ -1,6 +1,7 @@
 package io.matafe.guicesamples.inject;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.binder.ScopedBindingBuilder;
 import com.google.inject.multibindings.MapBinder;
 import com.google.inject.name.Names;
 
@@ -17,6 +18,8 @@ public class InjectBindingModule extends AbstractModule {
 	// linked binding - interface with one implementation
 	bind(IMyService.class).to(MyServiceImpl.class);
 
+	bindExternal(IMyExtService.class, "io.matafe.guicesamples.inject.MyTestServiceImpl", MyServiceImpl.class);
+
 	// annotation binding - interface with many implementation
 	bind(IMyPaymentService.class).annotatedWith(PayPal.class).to(MyPayPalPaymentServiceImpl.class);
 	bind(IMyPaymentService.class).annotatedWith(CreditCard.class).to(MyCreditCardPaymentServiceImpl.class);
@@ -31,6 +34,18 @@ public class InjectBindingModule extends AbstractModule {
 	mapBinder.addBinding("PayPal").to(MyPayPalPaymentServiceImpl.class);
 	mapBinder.addBinding("CreditCard").to(MyCreditCardPaymentServiceImpl.class);
 
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public <I, T extends I> ScopedBindingBuilder bindExternal(final Class<I> interfaceClass, final String externalImplementation,
+	    final Class<T> internalImplementation) {
+	Class extServiceImpl;
+	try {
+	    extServiceImpl = Class.forName(externalImplementation);
+	} catch (ClassNotFoundException e) {
+	    extServiceImpl = internalImplementation;
+	}
+	return bind(interfaceClass).to(extServiceImpl);
     }
 
 }

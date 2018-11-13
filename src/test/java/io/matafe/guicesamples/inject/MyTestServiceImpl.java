@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple Service Implementation
+ * External Service Implementation
  * 
  * @author matafe@gmail.com
  */
-public class MyServiceImpl implements IMyService, IMyExtService {
+public class MyTestServiceImpl implements IMyExtService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyServiceImpl.class);
 
@@ -17,5 +17,4 @@ public class MyServiceImpl implements IMyService, IMyExtService {
 	LOGGER.debug("processing {}", name);
 	return getClass().getSimpleName() + "_" + name;
     }
-
 }

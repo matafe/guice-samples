@@ -21,6 +21,9 @@ public class InjectionTest {
 
     @Inject
     IMyService myService;
+    
+    @Inject
+    IMyExtService myExtService;
 
     @Inject
     MySingletonService mySingletonService;
@@ -54,6 +57,12 @@ public class InjectionTest {
     public void testInterfaceBinding() {
 	final String name = "interfaceBinding";
 	assertThat(myService.process(name), equalTo(MyServiceImpl.class.getSimpleName() + "_" + name));
+    }
+    
+    @Test
+    public void testInterfaceExternalBinding() {
+	final String name = "interfaceExtBinding";
+	assertThat(myExtService.process(name), equalTo(MyTestServiceImpl.class.getSimpleName() + "_" + name));
     }
 
     @Test
