@@ -14,6 +14,9 @@ Google guice basic samples
 
 * Interceptor;
   * Method invocation interceptor - Eg: Logging;
+  
+* Multibinder;
+  * Rule Validation sample. 
 
 Check for full reference:
 https://github.com/google/guice/wiki/GettingStarted
