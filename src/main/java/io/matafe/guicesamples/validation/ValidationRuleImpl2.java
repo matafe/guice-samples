@@ -9,7 +9,7 @@ public class ValidationRuleImpl2 implements ValidationRule {
 
     @Override
     public void validate(int val) throws Exception {
-	if (val % 2 == 0) {
+	if (val != 0 && val % 2 == 0) {
 	    throw new Exception("Invalid = " + val);
 	}
     }

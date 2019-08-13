@@ -15,8 +15,9 @@ public class ValidationBindingModule extends AbstractModule {
 
 	// multi binder
 	Multibinder<ValidationRule> multibinder = Multibinder.newSetBinder(binder(), ValidationRule.class);
-	multibinder.addBinding().to(ValidationRuleImpl1.class);
+	
 	multibinder.addBinding().to(ValidationRuleImpl2.class);
+	multibinder.addBinding().to(ValidationRuleImpl1.class);
     }
 
 }
